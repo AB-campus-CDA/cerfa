@@ -5,7 +5,8 @@
     "require": {
         "monolog/monolog": "^2.9",
         "mikehaertl/php-pdftk": "^0.13.1",
-        "mikehaertl/php-shellcommand": "^1.7"
+        "mikehaertl/php-shellcommand": "^1.7",
+        "mikehaertl/php-tmpfile": "^1.2"
     },
     "autoload": {
         "psr-4": {
