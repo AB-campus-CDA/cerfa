@@ -1,33 +1,26 @@
 <?php
 
-use mikehaertl\pdftk\Pdf;
+use pdftk\Pdf;
 
-
+echo('test');
+//$pdf = new Pdf();
 // Get data
-$pdf = new Pdf(__DIR__ . '/templates/cerfa_11580_05.pdf', [
-    'command' => "/usr/bin/pdftk"
-]);
-$data = $pdf->getData();
-print_r($pdf);
+$pdf = new Pdf(__DIR__ . '/../../templates/cerfa_11580_05.pdf');
 
-$HOME = getenv('HOME');
-var_dump($HOME);
+$data = $pdf->getDataFields(true);
+
+
 
 // Create FDF from PDF
-$pdf = new Pdf(__DIR__ . '/templates/cerfa_11580_05.pdf', [
-    'command' => "/usr/bin/pdftk"
-    // or on most Windows systems:
-    // 'command' => 'C:\Program Files (x86)\PDFtk\bin\pdftk.exe',
-    //'useExec' => true,  // May help on Windows systems if execution fails
-]);
 
-$result = $pdf->generateFdfFile(__DIR__ . '/temporary_outputs/cerfa_11580_05.fdf');
+$result = $pdf
+    ->needAppearances()
+    ->generateFdfFile(__DIR__ . '/../../temporary_outputs/cerfa_11580_05.fdf');
 
-if ($result === false) {
+/*if ($result === false) {
     $error = $pdf->getError();
     var_dump($error);
-}
-
-var_dump(getenv('PATH'));
-
-var_dump($result);
+} else {*/
+    //var_dump($result);
+    print_r($data);
+//}

@@ -2,7 +2,7 @@
 namespace pdftk;
 
 use Exception;
-use mikehaertl\tmp\File;
+//use tmp\File;
 
 /**
  * InfoFile

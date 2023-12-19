@@ -3,14 +3,12 @@
     "description": "App that generate a PDF file from given and stored data",
     "type": "project",
     "require": {
-        "monolog/monolog": "^2.9",
-        "mikehaertl/php-pdftk": "^0.13.1",
-        "mikehaertl/php-shellcommand": "^1.7",
-        "mikehaertl/php-tmpfile": "^1.2"
+        "monolog/monolog": "^2.9"
     },
     "autoload": {
         "psr-4": {
-            "cerfaapp\\": "cerfaapp/"
+            "cerfaapp\\": "cerfaapp/",
+            "pdftk\\": "pdftk/"
         }
     },
     "authors": [

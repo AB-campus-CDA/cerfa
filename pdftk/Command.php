@@ -1,7 +1,7 @@
 <?php
 namespace pdftk;
 
-use mikehaertl\shellcommand\Command as BaseCommand;
+//use shellcommand\Command as BaseCommand;
 
 /**
  * Command

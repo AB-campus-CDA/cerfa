@@ -1,7 +1,7 @@
 <?php
 namespace pdftk;
 
-use mikehaertl\tmp\File;
+//use tmp\File;
 
 /**
  * XfdfFile

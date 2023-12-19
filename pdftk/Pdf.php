@@ -1,7 +1,7 @@
 <?php
 namespace pdftk;
 
-use mikehaertl\tmp\File;
+//use tmp\File;
 
 /**
  * Pdf
@@ -297,7 +297,7 @@ class Pdf
     {
         $this->constrainSingleFile();
         if (is_array($data)) {
-            $className = '\mikehaertl\pdftk\\' . ($format === 'xfdf' ? 'XfdfFile' : 'FdfFile');
+            $className = '\pdftk\\' . ($format === 'xfdf' ? 'XfdfFile' : 'FdfFile');
             $data = new $className($data, null, null, $this->tempDir, $encoding);
         }
         $this->getCommand()
