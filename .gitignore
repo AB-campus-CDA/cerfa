@@ -2,3 +2,5 @@
 .idea
 composer.lock
 vendor
+logs
+temporary_outputs
