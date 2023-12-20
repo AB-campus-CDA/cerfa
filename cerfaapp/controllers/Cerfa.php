@@ -2,6 +2,7 @@
 
 namespace cerfaapp\controllers;
 
+use mikehaertl\pdftk\FdfFile;
 use mikehaertl\pdftk\Pdf;
 use utils\Filter;
 use utils\Converter;
@@ -16,13 +17,12 @@ class Cerfa
     public static function getTemplateFiles(): array
     {
         $fdfFiles = [];
-
         $directory = App_config::get('TEMPLATES_PATH');
-        var_dump(__DIR__)    ;
-        var_dump($directory)    ;
 
-        // return only pdf files
-        $templates = array_filter(scandir($directory), "Filter::pdfFile");
+        // treat only pdf files
+        $templates = array_filter(scandir($directory), function($v, $k) {
+            return Filter::isPdf($v);
+        }, ARRAY_FILTER_USE_BOTH);
 
         foreach ($templates as $template) {
             $pdf = new Pdf($directory . '/' . $template);
@@ -30,11 +30,13 @@ class Cerfa
             $filePath = App_config::get('TEMPORARY_OUTPUTS_PATH') . '/' . pathinfo($template, PATHINFO_FILENAME) . '.fdf';
             $result = $pdf->generateFdfFile($filePath);
 
+
             if ($result === false) {
                 $error = $pdf->getError();
                 var_dump($error);
             } else {
-                $fdfFiles[$filePath] = $result;
+                //$fdfFiles[$filePath] = file_get_contents($filePath);
+                $fdfFiles[$filePath] = $filePath;
             }
 
         }
