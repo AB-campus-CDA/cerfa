@@ -21,6 +21,7 @@ class ReqJsonTest extends \PHPUnit\Framework\TestCase
         $this->assertIsString($data['organism']['address']['country']);
         $this->assertIsString($data['organism']['object']);
         $this->assertIsString($data['organism']['status']['type']);
+
         if ($data['organism']['status']['optionalFields']['date1']) {
             $this->assertIsString($data['organism']['status']['optionalFields']['date1']);
         }
@@ -30,7 +31,9 @@ class ReqJsonTest extends \PHPUnit\Framework\TestCase
         if ($data['organism']['status']['optionalFields']['reason']) {
             $this->assertIsString($data['organism']['status']['optionalFields']['reason']);
         }
+
         $this->assertIsString($data['donor']['type']);
+
         if ($data['donor']['name']) {
             $this->assertIsString($data['donor']['name']);
         }
@@ -46,35 +49,37 @@ class ReqJsonTest extends \PHPUnit\Framework\TestCase
         if ($data['donor']['siren']) {
             $this->assertIsString($data['donor']['siren']);
         }
+
         $this->assertIsString($data['donor']['address']['number']);
         $this->assertIsString($data['donor']['address']['street']);
         $this->assertIsString($data['donor']['address']['city']);
         $this->assertIsString($data['donor']['address']['postCode']);
+
         if ($data['donor']['address']['country']) {
             $this->assertIsString($data['donor']['address']['country']);
         }
+
         $this->assertIsString($data['donation'][0]['type']);
-        if ($data['donation']['0']['amount']) {
-            $this->assertIsFloat($data['donation']['0']['amount']);
+        $this->assertIsFloat($data['donation'][0]['amount']);
+        $this->assertIsString($data['donation'][0]['date']);
+
+        if ($data['donation'][0]['optionalField']['donationForm']) {
+            $this->assertIsInt($data['donation'][0]['optionalField']['donationForm']);
         }
-        $this->assertIsString($data['donation']['0']['date']);
-        if ($data['donation']['0']['optionalField']['donationForm']) {
-            $this->assertIsInt($data['donation']['0']['optionalField']['donationForm']);
+        if ($data['donation'][0]['optionalField']['nature']) {
+            $this->assertIsString($data['donation'][0]['optionalField']['nature']);
         }
-        if ($data['donation']['0']['optionalField']['nature']) {
-            $this->assertIsString($data['donation']['0']['optionalField']['nature']);
+        if ($data['donation'][0]['optionalField']['methodOfPayment']) {
+            $this->assertIsString($data['donation'][0]['optionalField']['methodOfPayment']);
         }
-        if ($data['donation']['0']['optionalField']['methodOfPayment']) {
-            $this->assertIsString($data['donation']['0']['optionalField']['methodOfPayment']);
+        if ($data['donation'][0]['optionalField']['reason']) {
+            $this->assertIsString($data['donation'][0]['optionalField']['reason']);
         }
-        if ($data['donation']['0']['optionalField']['reason']) {
-            $this->assertIsString($data['donation']['0']['optionalField']['reason']);
+        if ($data['donation'][0]['optionalField']['cgi']['200']) {
+            $this->assertIsBool($data['donation'][0]['optionalField']['cgi']['200']);
         }
-        if ($data['donation']['0']['optionalField']['cgi']['200']) {
-            $this->assertIsBool($data['donation']['0']['optionalField']['cgi']['200']);
-        }
-        if ($data['donation']['0']['optionalField']['cgi']['978']) {
-            $this->assertIsBool($data['donation']['0']['optionalField']['cgi']['978']);
+        if ($data['donation'][0]['optionalField']['cgi']['978']) {
+            $this->assertIsBool($data['donation'][0]['optionalField']['cgi']['978']);
         }
 
         return $this;

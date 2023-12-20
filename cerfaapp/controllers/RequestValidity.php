@@ -29,7 +29,9 @@ class RequestValidity
             && isset($data['donor']['address']['number']) && gettype($data['donor']['address']['number'] ) === 'string'
             && isset($data['donor']['address']['street']) && gettype($data['donor']['address']['street'] ) === 'string'
             && isset($data['donor']['address']['city']) && gettype($data['donor']['address']['city'] ) === 'string'
-            && isset($data['donor']['address']['postCode'])) && gettype($data['donor']['address']['postCode'] ) === 'string';
+            && isset($data['donor']['address']['postCode'])) && gettype($data['donor']['address']['postCode'] ) === 'string'
+            && isset($data['donation'][0]['type']) && gettype($data['donation'][0]['type'] ) === 'string'
+            && isset($data['donation'][0]['amount']) && gettype($data['donation'][0]['amount'] ) === 'double';
 
     }
 }
