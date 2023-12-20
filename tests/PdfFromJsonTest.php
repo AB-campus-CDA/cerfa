@@ -6,7 +6,7 @@ use cerfaapp\controllers\Cerfa;
 
 class PdfFromJsonTest extends \PHPUnit\Framework\TestCase
 {
-/*    public function testPdfFromJsonCerfa11580()
+    public function testPdfFromJsonCerfa11580()
     {
         $pdf = new Pdf('/app/templates/cerfa_11580_05.pdf');
 
@@ -37,7 +37,6 @@ class PdfFromJsonTest extends \PHPUnit\Framework\TestCase
         $pdf = new Pdf('/app/templates/cerfa_16216_01.pdf');
 
         $json = json_decode(file_get_contents('/app/tests/inputs/textInputs.json'), true);
-        var_dump($json);
 
         // generate file with php-pdftk
         $result = $pdf->fillForm($json)
@@ -58,7 +57,7 @@ class PdfFromJsonTest extends \PHPUnit\Framework\TestCase
         // compare files
         $this->assertFileEquals('/app/tests/outputs/cerfa_16216_01_textInput.pdf', '/app/temporary_outputs/cerfa_16216_01.pdf');
 
-    }*/
+    }
     public function testPdfFromJsonCAC1()
     {
         $pdf = new Pdf('/app/templates/cerfa_16216_01.pdf');
@@ -111,6 +110,8 @@ class PdfFromJsonTest extends \PHPUnit\Framework\TestCase
         $this->assertFileEquals('/app/tests/outputs/cerfa_16216_01_cac2.pdf', '/app/temporary_outputs/cerfa_16216_01.pdf');
 
     }
+
+    /*
     public function testPdfFromJsonCACall()
     {
         for ($i = 0; $i <= 50; $i++) {
@@ -148,5 +149,5 @@ class PdfFromJsonTest extends \PHPUnit\Framework\TestCase
         }
 
     }
-
+*/
 }

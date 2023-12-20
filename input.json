@@ -33,21 +33,21 @@
             "city": "",
             "postCode": "",
             "country": ""
-        },
-        "donation": [{
-            "type": "",
-            "amount": 0,
-            "date": "",
-            "optionalField": {
-                "donationForm": "",
-                "nature": "",
-                "methodOfPayment": "",
-                "reason": "",
-                "cgi": {
-                    "200": false,
-                    "978": false
-                }
+        }
+    },
+    "donation": [{
+        "type": "",
+        "amount": 0,
+        "date": "",
+        "optionalField": {
+            "donationForm": "",
+            "nature": "",
+            "methodOfPayment": "",
+            "reason": "",
+            "cgi": {
+                "200": false,
+                "978": false
             }
-        }]
-    }
+        }
+    }]
 }

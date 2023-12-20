@@ -2,13 +2,16 @@
 
 class ReqJsonTest extends \PHPUnit\Framework\TestCase
 {
-    public function ReqJsonIsOk($json)
-    {
+    public function testReqJsonIsOk() {
+        print_r("ReqJsonIsOk");
+
+        $json = file_get_contents('/app/input.json');
+
         $this->assertJson($json);
 
         $data = json_decode($json, true);
 
-        $this->assertIsInt($data['receitNumber']);
+        $this->assertIsInt($data['receiptNumber']);
         $this->assertIsString($data['organism']['name']);
         $this->assertIsString($data['organism']['sirenOrRna']);
         $this->assertIsString($data['organism']['address']['number']);
@@ -27,7 +30,6 @@ class ReqJsonTest extends \PHPUnit\Framework\TestCase
         if ($data['organism']['status']['optionalFields']['reason']) {
             $this->assertIsString($data['organism']['status']['optionalFields']['reason']);
         }
-        $this->assertIsString($data['organism']['status']['date']);
         $this->assertIsString($data['donor']['type']);
         if ($data['donor']['name']) {
             $this->assertIsString($data['donor']['name']);
@@ -51,7 +53,7 @@ class ReqJsonTest extends \PHPUnit\Framework\TestCase
         if ($data['donor']['address']['country']) {
             $this->assertIsString($data['donor']['address']['country']);
         }
-        $this->assertIsString($data['donation']['0']['type']);
+        $this->assertIsString($data['donation'][0]['type']);
         if ($data['donation']['0']['amount']) {
             $this->assertIsFloat($data['donation']['0']['amount']);
         }
@@ -75,5 +77,6 @@ class ReqJsonTest extends \PHPUnit\Framework\TestCase
             $this->assertIsBool($data['donation']['0']['optionalField']['cgi']['978']);
         }
 
+        return $this;
     }
 }

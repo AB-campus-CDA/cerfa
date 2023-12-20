@@ -8,6 +8,7 @@ use cerfaapp\controllers\Router;
 use cerfaapp\controllers\Request;
 use cerfaapp\controllers\Response;
 use cerfaapp\controllers\Cerfa;
+use cerfaapp\controllers\RequestValidity;
 
 
 
@@ -29,11 +30,29 @@ Router::get("/", function (Request $request, Response $response) {
 // use this route to generate the PDF
 Router::post("/", function (Request $request, Response $response) {
     $date = new DateTime();
-    $response->toJSON([
+
+    $requestValidity = new RequestValidity();
+    if (!$requestValidity($request)) {
+        $response->toJSON([
+            'message' => 'invalid request',
+        ]);
+    } else {
+        // generate the PDF
+        //$cerfa = new Cerfa($request->getJSON());
+
+        // then send it
+        $response->toJSON([
+            'message' => 'is ok for prod ;)',
+            'date' => $date->format('Y-m-d H:i:s'),
+        ]);
+    }
+
+/*    $response->toJSON([
         't' => 'hello world POST',
         'date' => $date->format('Y-m-d H:i:s'),
         'reqMethod' => $request->getReqMethod(),
-    ]);
+        'your content' => $content
+    ]);*/
 });
 
 

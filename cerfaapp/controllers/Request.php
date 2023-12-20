@@ -23,7 +23,7 @@ class Request
         return $this->reqMethod;
     }
 
-    public function getBody()
+/*    public function getBody()
     {
         if ($this->reqMethod !== 'POST') {
             return '';
@@ -35,7 +35,7 @@ class Request
         }
 
         return $body;
-    }
+    }*/
 
     public function getJSON()
     {
@@ -49,7 +49,7 @@ class Request
 
         // Receive the RAW post data.
         $postContent = trim(file_get_contents("php://input"));
-        $decodedContent = json_decode($postContent);
+        $decodedContent = json_decode($postContent, true);
 
         return $decodedContent;
     }
