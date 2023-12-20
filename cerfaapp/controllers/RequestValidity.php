@@ -31,7 +31,6 @@ class RequestValidity
             && isset($data['donor']['address']['city']) && gettype($data['donor']['address']['city'] ) === 'string'
             && isset($data['donor']['address']['postCode'])) && gettype($data['donor']['address']['postCode'] ) === 'string'
             && isset($data['donation'][0]['type']) && gettype($data['donation'][0]['type'] ) === 'string'
-            && isset($data['donation'][0]['amount']) && is_numeric($data['donation'][0]['amount'] && $data['donation'][0]['amount']>0 );
-
+            && isset($data['donation'][0]['amount']) && is_numeric($data['donation'][0]['amount']) && ($data['donation'][0]['amount']>0);
     }
 }

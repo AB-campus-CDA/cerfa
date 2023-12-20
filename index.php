@@ -33,17 +33,18 @@ Router::post("/", function (Request $request, Response $response) {
 
     $requestValidity = new RequestValidity();
     if (!$requestValidity($request)) {
+        //$response->setStatus(400);
         $response->toJSON([
             'message' => 'invalid request',
         ]);
     } else {
         // generate the PDF
-        //$cerfa = new Cerfa($request->getJSON());
+        $cerfa = base64_encode(file_get_contents(App_config::get('TEMPLATES_PATH') . '/' . 'cerfa_11580_05.pdf'));
 
         // then send it
         $response->toJSON([
-            'message' => 'is ok for prod ;)',
             'date' => $date->format('Y-m-d H:i:s'),
+            'receipt' => base64_encode($cerfa)
         ]);
     }
 
