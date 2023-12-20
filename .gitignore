@@ -3,5 +3,5 @@
 composer.lock
 vendor
 logs
-temporary_outputs/*
-test/outputs/*
+temporary_outputs/*.*
+test/outputs/*.*
