@@ -6,12 +6,13 @@
         "monolog/monolog": "^2.9",
         "mikehaertl/php-pdftk": "^0.13.1",
         "mikehaertl/php-shellcommand": "^1.7",
-        "mikehaertl/php-tmpfile": "^1.2"
+        "mikehaertl/php-tmpfile": "^1.2",
+        "phpunit/phpunit": "10.5.3"
     },
     "autoload": {
         "psr-4": {
             "cerfaapp\\": "cerfaapp/",
-            "pdftk\\": "pdftk/"
+            "utils\\": "utils/"
         }
     },
     "authors": [
