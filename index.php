@@ -38,6 +38,9 @@ Router::post("/", function (Request $request, Response $response) {
             'message' => 'invalid request',
         ]);
     } else {
+        // get the cerfa type and check specific fields validity
+
+
         // generate the PDF
         $cerfa = base64_encode(file_get_contents(App_config::get('TEMPLATES_PATH') . '/' . 'cerfa_11580_05.pdf'));
 

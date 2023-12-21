@@ -14,7 +14,7 @@
         "status": {
             "type": "",
             "optionalFields": {
-                "date1": "",
+                "date1": "1987-01-31",
                 "date2": "",
                 "reason": ""
             }
@@ -35,15 +35,15 @@
             "country": ""
         }
     },
-    "donation": [{
+    "donations": [{
         "type": "",
         "amount": 0.0,
-        "date": "",
-        "optionalField": {
+        "optionalFields": {
             "donationForm": "",
             "nature": "",
             "methodOfPayment": "",
-            "reason": "",
+            "otherNature": "",
+            "inKindDescription": "",
             "cgi": {
                 "200": false,
                 "978": false
