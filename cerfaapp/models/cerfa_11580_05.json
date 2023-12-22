@@ -1,0 +1,72 @@
+{
+    "asso_name":{
+        "type": "string",
+        "mandatory": true,
+        "field": "a3"
+    },
+    "asso_street":{
+        "type": "string",
+        "mandatory": false,
+        "field": "a6"
+    },
+    "asso_siren":{
+        "type": "string",
+        "mandatory": true,
+        "field": "a4"
+    },
+    "asso_type": {
+        "type": "string",
+        "mandatory": true,
+        "dependency": {
+            "field": "asso_type",
+            "values": {
+                "LOI1901": {
+                    "CAC0": 1,
+                    "CAC1": 1
+                },
+                "FRUP": {
+                    "CAC0": 2,
+                    "CAC1": 1
+                },
+                "FRUP_MOZEL": {
+                    "CAC0": 2,
+                    "CAC1": 1
+                },
+                "ASS_CULT": {
+                    "CAC2": 1
+                }
+            }
+        }
+    },
+    "date": {
+        "type": "date",
+        "dependency": {
+            "field": "asso_type",
+            "values": {
+                "FRUP": {
+                    "d12": "d/m/Y"
+                },
+                "FRUP_MOZEL": {
+                    "d14": "d/m/Y"
+                },
+                "SCIENTIFIC": {
+                    "a14": "d/m/Y"
+                },
+                "HISTORIC": {
+                    "a15": "d/m/Y"
+                }
+            }
+        }
+    },
+    "date2": {
+        "type": "date",
+        "dependency": {
+            "field": "asso_type",
+            "values": {
+                "FRUP": {
+                    "d13": "d/m/Y"
+                }
+            }
+        }
+    }
+}

@@ -37,9 +37,11 @@ class Request
         return $body;
     }*/
 
-    public function getJSON()
+    public function getJSON($option)
     {
-        if ($this->reqMethod !== 'POST') {
+        $options = [ 'decoded', 'raw' ];
+
+        if ($this->reqMethod !== 'POST' || !in_array($option, $options)) {
             return [];
         }
 
@@ -51,6 +53,6 @@ class Request
         $postContent = trim(file_get_contents("php://input"));
         $decodedContent = json_decode($postContent, true);
 
-        return $decodedContent;
+        return $option === 'decoded' ? $decodedContent : $postContent;
     }
 }

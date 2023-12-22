@@ -1,0 +1,44 @@
+{
+    "donorType": "",
+    "receiptNumber": 0,
+        "organism_name": "spa",
+        "organism_sirenOrRna": "",
+        "" : {
+            "organism_addr_number": "",
+            "organism_addr_street": "",
+            "organism_addr_city": "",
+            "organism_addr_postCode": "",
+            "organism_addr_country": ""
+        },
+        "organism_object1": "sauvage",
+        "organism_object2": "des animals",
+        "status_type": "1901_LAW",
+        "status_type_date1": "",
+        "status_type_date2": "",
+        "donor_lastName": "",
+        "donor_firstName": "",
+        "donor_name": "",
+        "donor_legalForm": "",
+        "donor_siren": "",
+            "donor_addr_number": "",
+            "donor_addr_street": "",
+            "donor_addr_city": "",
+            "donor_addr_postCode": "",
+            "donor_addr_country": "",
+
+    "donations": [{
+        "donations_type": "",
+        "amount": 0.0
+    }],
+    "unused": {
+        "donationForm": "",
+        "nature": "",
+        "methodOfPayment": "",
+        "otherNature": "",
+        "inKindDescription": "",
+        "cgi": {
+            "200": false,
+            "978": false
+        }
+    }
+}

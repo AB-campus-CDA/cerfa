@@ -30,33 +30,34 @@ Router::get("/", function (Request $request, Response $response) {
 // use this route to generate the PDF
 Router::post("/", function (Request $request, Response $response) {
     $date = new DateTime();
+    //print_r('post received');
 
-    $requestValidity = new RequestValidity();
-    if (!$requestValidity($request)) {
-        //$response->setStatus(400);
-        $response->toJSON([
-            'message' => 'invalid request',
-        ]);
-    } else {
-        // get the cerfa type and check specific fields validity
+    $data = $request->getJSON('raw');
+    $donorType = json_decode($data, true)['donor_type'];
+    $fdf = Cerfa::checkValidity($donorType, $data);
+    //var_dump($fdf['signature']);
 
+    if (count($fdf) > 0) {
 
-        // generate the PDF
-        $cerfa = base64_encode(file_get_contents(App_config::get('TEMPLATES_PATH') . '/' . 'cerfa_11580_05.pdf'));
+        $filledCerfa = Cerfa::generateReceipt($fdf, $donorType);
 
         // then send it
         $response->toJSON([
             'date' => $date->format('Y-m-d H:i:s'),
-            'receipt' => base64_encode($cerfa)
+            //'fdf' => $fdf,
+            //'sign' => $fdf['signature'],
+            'receipt' => $filledCerfa
+        ]);}
+    else {
+        $response->setStatus(400);
+        $response->toJSON([
+            'date' => $date->format('Y-m-d H:i:s'),
+            'error' => 'invalid data'
         ]);
     }
 
-/*    $response->toJSON([
-        't' => 'hello world POST',
-        'date' => $date->format('Y-m-d H:i:s'),
-        'reqMethod' => $request->getReqMethod(),
-        'your content' => $content
-    ]);*/
+    $response->setStatus(400);
+
 });
 
 

@@ -9,13 +9,13 @@ class Response
     public function setStatus(int $code)
     {
         $this->status = $code;
-        return $this;
     }
 
     public function toJSON($data = [])
     {
         http_response_code($this->status);
         header('Content-Type: application/json');
-        echo json_encode($data);
+        echo json_encode($data, JSON_UNESCAPED_SLASHES);
+        //echo $data;
     }
 }
